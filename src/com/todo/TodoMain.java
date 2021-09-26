@@ -8,12 +8,15 @@ import com.todo.service.TodoUtil;
 
 public class TodoMain {
 	
-	public static void start() {
+	public static String filename="todolist.txt";
 	
+	public static void start() {
 		Scanner sc = new Scanner(System.in);
 		TodoList l = new TodoList();
 		boolean isList = false;
 		boolean quit = false;
+		
+		TodoUtil.loadList(l, filename);
 		do {
 			Menu.prompt();
 			isList = false;
@@ -57,6 +60,7 @@ public class TodoMain {
 				break;
 
 			case "exit":
+				TodoUtil.saveList(l,filename);
 				quit = true;
 				break;
 
