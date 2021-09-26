@@ -42,6 +42,11 @@ public class TodoMain {
 			case "ls":
 				TodoUtil.listAll(l);
 				break;
+				
+			case "find":
+				String key=sc.next();
+				TodoUtil.listKey(l,key);
+				break;
 
 			case "ls_name_asc":
 				l.sortByName();

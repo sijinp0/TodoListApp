@@ -80,8 +80,10 @@ public class TodoUtil {
 		for (TodoItem item : l.getList()) {
 			count+=1;
 		}
-		if (num>count)
+		if (num>count) {
+			System.out.println("번호가 없습니다.");
 			return;
+		}
 
 		System.out.println("새로운 제목 > ");
 		String new_title = sc.next().trim();
@@ -123,6 +125,15 @@ public class TodoUtil {
 		count=0;
 		for (TodoItem item : l.getList()) {
 			count+=1;
+			System.out.println(count+". [" + item.getCategory() + "] " + item.getTitle()+" - "+item.getDesc() + " - " + item.getDue_date()+ " - "+item.getCurrent_date());
+		}
+	}
+	
+	public static void listKey(TodoList l, String key) {
+		int count=0;
+		for (TodoItem item : l.getList()) {
+			count+=1;
+			if(item.getTitle().contains(key)||item.getDesc().contains(key))
 			System.out.println(count+". [" + item.getCategory() + "] " + item.getTitle()+" - "+item.getDesc() + " - " + item.getDue_date()+ " - "+item.getCurrent_date());
 		}
 	}
