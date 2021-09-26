@@ -1,4 +1,4 @@
-package com.todo;
+ package com.todo;
 
 import java.util.Scanner;
 
@@ -15,10 +15,14 @@ public class TodoMain {
 		boolean isList = false;
 		boolean quit = false;
 		do {
-			Menu.displaymenu();
+			Menu.prompt();
 			isList = false;
 			String choice = sc.next();
 			switch (choice) {
+			
+			case "help":
+				Menu.displaymenu();
+				break;
 
 			case "add":
 				TodoUtil.createItem(l);
@@ -57,7 +61,7 @@ public class TodoMain {
 				break;
 
 			default:
-				System.out.println("please enter one of the above mentioned command");
+				System.out.println("정확한 명령어를 입력하세요. ( 도움말 - help )");
 				break;
 			}
 			
